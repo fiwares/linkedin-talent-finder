@@ -1,3 +1,5 @@
 %div
-  %h1.font-bold.text-4xl Home#index
-  %p Find me in app/views/home/index.html.erb
+  %h1.font-bold.text-4xl= "Hey #{current_user.email}"
+  %p Are you ready to find great talents on LinkedIn?
+  %p
+    = button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false }, class: "inline-flex items-center rounded border border-transparent bg-blue-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"

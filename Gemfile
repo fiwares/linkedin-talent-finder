@@ -53,6 +53,11 @@ gem "bootsnap", require: false
 
 gem "haml-rails"
 gem "html2haml"
+gem "devise"
+gem "devise-i18n"
+
+gem "simple_form"
+gem "simple_form-tailwind"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
