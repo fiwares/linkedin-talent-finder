@@ -1,19 +1,18 @@
-%h2 Change your password
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  = f.hidden_field :reset_password_token
-  .field
-    = f.label :password, "New password"
-    %br/
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-      %br/
-    = f.password_field :password, autofocus: true, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation, "Confirm new password"
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Change my password"
-= render "devise/shared/links"
+.flex.min-h-full.flex-col.justify-center.py-12.sm:px-6.lg:px-8
+  .sm:mx-auto.sm:w-full.sm:max-w-md
+    %h2.mt-6.text-center.text-3xl.font-bold.tracking-tight.text-gray-900 Change your password
+    %p.mt-2.text-center.text-sm.text-gray-600
+  .mt-8.sm:mx-auto.sm:w-full.sm:max-w-md
+    .bg-white.py-8.px-4.shadow.sm:rounded-lg.sm:px-10
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f|
+        = f.hidden_field :reset_password_token
+        %br/
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+          %br/
+        = f.input :password
+        = f.input :password_confirmation
+        = f.button :submit, "Change my password", type: :submit
+
+      = render "devise/shared/links"
