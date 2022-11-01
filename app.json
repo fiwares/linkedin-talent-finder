@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "dokku": {
+      "predeploy": "apt update && apt install python3-pip && pip3 install git+https://github.com/tomquirk/linkedin-api.git"
+    }
+  }
+}
